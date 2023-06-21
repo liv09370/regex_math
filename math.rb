@@ -23,7 +23,7 @@ doc.paragraphs.each do |para|
     puts "replacements: " + replacements.inspect
 
 	
-    ts = previous_paragraph.xpath("//m:t")
+    ts = previous_paragraph.xpath(".//m:t")
 		ts.each do |t|
 			puts ts.count
 			latex_formula = t.children.text.gsub('（', '(').gsub('）', ')')
@@ -50,7 +50,7 @@ doc.paragraphs.each do |para|
 		replacements = nil
 		latex_formula = nil
 		i += 1
-
+    para.remove!
 		
   end
   #puts para.text
@@ -59,5 +59,5 @@ doc.paragraphs.each do |para|
 end
 
 # 保存修改后的文档
-doc.save('path_to_your_modified_doc.docx')
+doc.save('path_to_your_modified_doc2.docx')
 
